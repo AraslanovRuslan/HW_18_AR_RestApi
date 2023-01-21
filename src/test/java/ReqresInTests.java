@@ -9,12 +9,13 @@ public class ReqresInTests {
 
     @Test
     void registerSuccessfulTest() {
-        String data = "{ \"email\": \"eve.holt@reqres.in\", \"password\": \"pistol\" }";
+
 
         given()
                 .log().uri()
                 .contentType(JSON)
-                .body(data)
+                .formParam("email""eve.holt@reqres.in")
+                .formParam("password""pistol")
                 .when()
                 .post("https://reqres.in/api/register")
                 .then()
